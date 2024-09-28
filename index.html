@@ -18,25 +18,37 @@
 </head>
 <body>
 <a-scene>
-    <a-entity
+    <a-entity id="blahaj"
             obj-model="obj: url(/blahaj.obj); mtl: url(/blahaj.mtl)"
             position="0 1.6 -3"
             scale="0.5 0.5 0.5"
-            animation="property: rotation; to: 0 360 0; loop: true; dur: 500; easing: linear"
     >
     </a-entity>
-
     <a-camera position="0 1.6 0"></a-camera>
 
 
 </a-scene>
 <script>
-    var sound = new Howl({
-        src: ['/funkytown.mp3'], // replace with your audio file path
-        autoplay: true,  // Automatically start playing
-        loop: true,      // Enable looping
-        volume: 0.5,     // Set volume (optional)
+    new Howl({
+        src: ['/funkytown.mp3'],
+        autoplay: true,
+        loop: true,
+        volume: 0.5,
+        rate: 0.6 + Math.random() * 0.7
     });
+
+    const model = document.querySelector('#blahaj');
+
+    const rotation = {x: 0, y: 0, z: 0};
+    function rotateModel() {
+        rotation.x += 0.01;
+        rotation.y += 3;
+        rotation.z += 0.08;
+
+        model.setAttribute('rotation', `${rotation.x} ${rotation.y} ${rotation.z}`);
+        requestAnimationFrame(rotateModel);
+    }
+    rotateModel();
 </script>
 </body>
 </html>
