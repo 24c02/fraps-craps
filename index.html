@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>nora's cool webbed site! but 3d,,,</title>
+    <style>
+        html {
+            color-scheme: light dark;
+        }
+        body {
+            width: 35em;
+            margin: 0 auto;
+            font-family: "Comic Sans MS";
+        }
+    </style>
+    <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.4/howler.min.js" integrity="sha512-xi/RZRIF/S0hJ+yJJYuZ5yk6/8pCiRlEXZzoguSMl+vk2i3m6UjUO/WcZ11blRL/O+rnj94JRGwt/CHbc9+6EA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+<a-scene>
+    <a-entity
+            obj-model="obj: url(/blahaj.obj); mtl: url(/blahaj.mtl)"
+            position="0 1.6 -3"
+            scale="0.5 0.5 0.5"
+            animation="property: rotation; to: 0 360 0; loop: true; dur: 500; easing: linear"
+    >
+    </a-entity>
+
+    <a-camera position="0 1.6 0"></a-camera>
+
+
+</a-scene>
+<script>
+    var sound = new Howl({
+        src: ['/funkytown.mp3'], // replace with your audio file path
+        autoplay: true,  // Automatically start playing
+        loop: true,      // Enable looping
+        volume: 0.5,     // Set volume (optional)
+    });
+</script>
+</body>
+</html>
