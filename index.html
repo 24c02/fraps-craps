@@ -29,12 +29,12 @@
 
 </a-scene>
 <script>
-    new Howl({
+    const funkytown = new Howl({
         src: ['/funkytown.mp3'],
         autoplay: true,
-        loop: true,
         volume: 0.5,
-        rate: 0.6 + Math.random() * 0.7
+        rate: 0.6 + Math.random() * 0.7,
+        onend: ()=>{funkytown.rate(0.6 + Math.random() * 0.7); funkytown.play()}
     });
 
     const model = document.querySelector('#blahaj');
